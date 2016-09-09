@@ -11,19 +11,25 @@
     border: 1px solid black;
     display: block;
 }
+
 .tank {
-    position: relative;
+    position: absolute;
     cursor: pointer;
     width: 50px;
     height: 50px;
     transition: left .5s cubic-bezier(0,0,1,1),
     top .5s cubic-bezier(0,0,1,1);
 }
-/*
-.rotation{
-
+.tank.gun{
+    position: absolute;
+    transition: left .5s cubic-bezier(0,0,1,1),
+    top .5s cubic-bezier(0,0,1,1);
 }
-*/
+.tank.shot{
+    position: relative;
+    transition: left .5s cubic-bezier(0,0,1,1),
+    top .5s cubic-bezier(0,0,1,1);
+}
 
 .rotation_right {
     transition: all 0.5s ease-in-out;
