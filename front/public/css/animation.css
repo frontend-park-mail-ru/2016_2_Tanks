@@ -1,35 +1,21 @@
-#kinput {
-    font-size: 150%;
-    box-sizing: border-box;
-    width: 95%;
-}
-
-#area {
-    width: 95%;
-    box-sizing: border-box;
-    height: 250px;
-    border: 1px solid black;
-    display: block;
-}
-
-.tank {
+.burn{
     position: absolute;
-    cursor: pointer;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}
+
+.normalTank{
+    position: absolute;
     width: 50px;
     height: 50px;
-    transition: left .5s cubic-bezier(0,0,1,1),
-    top .5s cubic-bezier(0,0,1,1);
 }
-.tank.gun{
-    position: absolute;
-    transition: left .5s cubic-bezier(0,0,1,1),
-    top .5s cubic-bezier(0,0,1,1);
+
+.shot{
+    width: 10px;
+    height: 10px;
 }
-.tank.shot{
-    position: relative;
-    transition: left .5s cubic-bezier(0,0,1,1),
-    top .5s cubic-bezier(0,0,1,1);
-}
+/*
 
 .rotation_right {
     transition: all 0.5s ease-in-out;
@@ -47,3 +33,16 @@
     transition: all 0.5s ease-in-out;
     transform: rotate(180deg);
 }
+#kinput {
+    font-size: 150%;
+    box-sizing: border-box;
+    width: 95%;
+}
+
+#area {
+    width: 95%;
+    box-sizing: border-box;
+    height: 250px;
+    border: 1px solid black;
+    display: block;
+}*/

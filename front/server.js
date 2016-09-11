@@ -1,13 +1,13 @@
 let express = require('express');
-let parser = require('body-parser');
+//let parser = require('body-parser');
 let app = express();
 
 app.use('/', express.static('public'));
 
-app.use(parser.json());
+//app.use(parser.json());
 
-let count ={};
 /*
+let count ={};
 app.post('/users', (req, res) => {
     if(count[req.body['email']]){
         count[req.body['email']]++;
