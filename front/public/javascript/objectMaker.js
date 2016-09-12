@@ -32,8 +32,8 @@ function MakeTank() {
         tank.gun(style);
         tank.shot('burn');
 
-        data.style.transition=" left .5s linear";
-        data.style.transition+=", top .5s linear";
+        //data.style.transition=" left .5s linear";
+        //data.style.transition+=", top .5s linear";
         //housing.style.transition=" rotate(90deg) 10s linear";
 
         data.style.position = "absolute";
