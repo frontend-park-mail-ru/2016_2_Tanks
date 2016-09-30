@@ -163,6 +163,9 @@
                     }
                 });
             }
+            else {
+                alert("this login is zanet");
+            }
         });
 
         formSignin.on('submit', event => {
@@ -196,6 +199,9 @@
                         ]
                     }
                 });
+            }
+            else {
+                alert("wrong password");
             }
         });
 
