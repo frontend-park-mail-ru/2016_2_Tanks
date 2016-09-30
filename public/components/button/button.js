@@ -23,7 +23,15 @@
 			this.setAttrs(this.attrs);
 			return this;
 		}
-		
+
+/*
+		on(type, callback) {
+			//this.el.querySelector('button').addEventListener(type, callback, false);
+			console.log("ok")
+			this.el.addEventListener(type, callback, false);
+		}
+*/
+
 		toString () {
 			return this.el.outerHTML;
 		}

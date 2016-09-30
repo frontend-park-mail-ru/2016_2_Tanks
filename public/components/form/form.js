@@ -69,9 +69,19 @@
         }
 
         on(type, callback) {
-            //this.el.querySelector('button').addEventListener(type, callback, false);
             this.el.addEventListener(type, callback, false);
+            /*
+            //this.el.querySelector('button').addEventListener(type, callback, false);
+            let buttons = this.el.querySelectorAll('button');
+            console.log(buttons)
+            for (let i = 0; i < buttons.length; i++) {
+                let elem = buttons[i];
+                elem.addEventListener(type, callback)
+                console.log(elem.classList[0]);
+            }
+*/
         }
+
 
         getFormData() {
             let form = this.el.querySelector('form');

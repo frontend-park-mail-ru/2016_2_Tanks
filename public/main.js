@@ -5,7 +5,7 @@
 
         //import
         let user = {login: "", email: "", password: ""};
-        let addressHost = "http://tanksback.herokuapp.com/";
+        let addressHost = "http://localhost:8080/";
 
         let Button = window.Button;
         let Form = window.Form;
@@ -26,14 +26,14 @@
                         attrs: {
                             type: 'submit'
                         }
-                    }/*,
+                    },
                     {
                         className:'DeleteUserButton',
                         text: 'DeleteUser',
                         attrs: {
                             type: 'submit'
                         }
-                    }*/
+                    }
                 ]
             }
         });
@@ -128,6 +128,7 @@
             profilePage.hidden = false;
         };
 
+        //formLogin.el.querySelectorAll('button')[0].on('submit', event => {
         formLogin.on('submit', event => {
             event.preventDefault();
 
@@ -169,9 +170,9 @@
             let formData = formSignin.getFormData();
 
             let xhr = new XMLHttpRequest();
-
             xhr.open('POST', addressHost + 'api/session', false);
             xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.withCredentials = true;
             xhr.send(JSON.stringify(formData));
 
             if (xhr.status === 200) {
@@ -187,13 +188,11 @@
                 formProfile.reFill({
                     data: {
                         title: 'Hi! ' + user.login,
-/*
                         fields: [
                             {
-                                text: user.email
+                                text: responseDataFields['email']
                             }
                         ]
-*/
                     }
                 });
             }
@@ -218,9 +217,9 @@
 
         formProfile.on('submit', event=> {
             //when I LogOut, I need to restart page, because session is invalidate
-            //event.preventDefault();
+            event.preventDefault();
 
-            console.log(event.currentTarget);
+            //console.log(event.currentTarget);
 
             profilePage.hidden = true;
             loginPage.hidden = false;
@@ -233,6 +232,8 @@
 
             alert(`by, ${user.login}`);
         });
+
+
     }
 
     function parseJSON(data) {
