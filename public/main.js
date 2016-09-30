@@ -5,7 +5,7 @@
 
         //import
         let user = {login: "", email: "", password: ""};
-        let addressHost = "http://localhost:8080/";
+        let addressHost = "http://serene-bastion-84317.herokuapp.com/";
 
         let Button = window.Button;
         let Form = window.Form;
