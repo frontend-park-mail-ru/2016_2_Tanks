@@ -13,7 +13,7 @@ app.use('/', express.static('public', { maxAge: 1 }));
 technoDoc.generate(require('./api'), 'public');
 
 app.use(parser.json());
-app.use('/libs', express.static('node_modules'));
+//app.use('/libs', express.static('node_modules'));
 
 /*
 app.get('/api/session', (req, res) => {

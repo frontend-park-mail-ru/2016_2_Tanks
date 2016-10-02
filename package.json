@@ -12,7 +12,8 @@
     "url": "git+https://github.com/tupiznak/tanks.front.git"
   },
   "engines": {
-    "node": "6.3.1"
+    "node": "6.3.1",
+    "npm": "3.10.3"
   },
   "keywords": [],
   "author": "",
