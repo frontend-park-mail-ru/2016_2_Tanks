@@ -5,7 +5,7 @@
 
         //import
         let user = {login: "", email: "", password: ""};
-        let addressHost = "http://tanksback.herokuapp.com/";
+        let addressHost = "http://javaprodaction.herokuapp.com/";
         //let addressHost = "http://localhost:8080/";
 
         let Button = window.Button;
@@ -223,7 +223,6 @@
 */
 
         formProfile.on('submit', event=> {
-            //when I LogOut, I need to restart page, because session is invalidate
             event.preventDefault();
 
             //console.log(event.currentTarget);
