@@ -3,11 +3,6 @@ module.exports =  {
   "description": "Пользователи",
 
   "properties": {
-    "id": {
-      "description": "Id авторизационной сессии",
-      "type": "integer",
-      "minimum": 0
-    },
     "email": {
       "description": "Email пользователя",
       "type": "string",

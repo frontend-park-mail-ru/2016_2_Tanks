@@ -1,109 +1,123 @@
 exports.post = {
-  "tags": ["user"],
-  "description": "Метод создания пользователя",
+    "tags": ["user"],
+    "description": "Метод создания пользователя",
+    "parameters": [
+        {
+            "name": "email",
+            "description": "Email пользователя",
+            "type": "string"
+        },
+        {
+            "name": "login",
+            "description": "Логин пользователя",
+            "type": "string"
+        },
+        {
+            "name": "password",
+            "description": "Пароль пользователя",
+            "type": "string"
+        }
+    ],
 
-  "parameters": [
-    {
-      "name": "email",
-      "description": "Логин пользователя",
-      "type": "string"
+    "responses": {
+        "200": {
+            "description": "Пользоатель добавлен"
+        },
+        "403": {
+            "description": "Ошибка при выполнении запроса"
+        }
     },
-    {
-      "name": "login",
-      "description": "Логин пользователя",
-      "type": "string"
-    },
-    {
-      "name": "password",
-      "description": "Пароль пользователя",
-      "type": "string"
-    }
-  ],
-
-  "responses": {
-    "200": {
-      "description": "Id сессии",
-      "schema": {
-        "$ref": "#/definitions/Session"
-      }
-    },
-    "403": {
-      "description": "Ошибка при выполнении запроса"
-    }
-  }
+    "x-amples": [{
+        "description": "Добавление пользователя",
+        "request": {
+            "params": {
+                "login": "test",
+                "password": "testpwd",
+                "email": "test@test.ok"
+            }
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "content-type": "application/json"
+            }
+        }
+    }]
 };
 exports.get = {
-  "tags": ["user"],
-  "description": "Метод получения информации о пользователе",
+    "tags": ["user"],
+    "description": "Метод получения информации о пользователе",
 
-  "parameters": [
-    {
-      "name": "id",
-      "description": "Id сессии",
-      "type": "integer",
-      "in": "path",
-      "required": true
+    "responses": {
+        "200": {
+            "description": "Информация о пользователе",
+            "schema": {
+                "$ref": "#/definitions/User"
+            }
+        },
+        "401": {
+            "description": "Ошибка при выполнении запроса"
+        }
     },
-  ],
-
-  "responses": {
-    "200": {
-      "description": "Информация о пользователе",
-      "schema": {
-        "$ref": "#/definitions/User"
-      }
-    },
-    "401": {
-      "description": "Ошибка при выполнении запроса"
-    }
-  }
+    "x-amples": [{
+        "description": "Получение пользователя",
+        "request": {},
+        "response": {
+            "status": 200,
+            "headers": {
+                "content-type": "application/json"
+            },
+            "data": {
+                "login": "test",
+                "email": "test@test.ok"
+            }
+        }
+    }]
 };
 exports.put = {
-  "tags": ["user"],
-  "description": "Метод изменения данных пользователя",
-
-  "parameters": [
-    {
-      "name": "id",
-      "description": "Id сессии",
-      "type": "integer",
-      "in": "path",
-      "required": true
-    },
-  ],
-
-  "responses": {
-    "200": {
-      "description": "Id  сессии",
-      "schema": {
-        "$ref": "#/definitions/Session"
-      }
-    },
-    "403": {
-      "description": "Ошибка при выполнении запроса"
+    "tags": ["user"],
+    "description": "Метод изменения данных пользователя",
+    "parameters": [
+        {
+            "name": "email",
+            "description": "Email пользователя",
+            "type": "string"
+        },
+        {
+            "name": "password",
+            "description": "Пароль пользователя",
+            "type": "string"
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Пользователь изменён"
+        },
+        "403": {
+            "description": "Ошибка при выполнении запроса"
+        }
     }
-  }
 };
 exports.delete = {
-  "tags": ["user"],
-  "description": "Метод удаления пользователя",
+    "tags": ["user"],
+    "description": "Метод удаления пользователя",
 
-  "parameters": [
-    {
-      "name": "id",
-      "description": "Id сессии",
-      "type": "integer",
-      "in": "path",
-      "required": true
+    "responses": {
+        "200": {
+            "description": "Пользователь удалён"
+        },
+        "403": {
+            "description": "Ошибка при выполнении запроса"
+        }
     },
-  ],
-
-  "responses": {
-    "200": {
-      "description": "Успешный запрос"
-    },
-    "403": {
-      "description": "Ошибка при выполнении запроса"
-    }
-  }
+    "x-amples": [{
+        "description": "удаление пользователя",
+        "request": {},
+        "response": {
+            "status": 200,
+            "headers": {
+                "content-type": "application/json"
+            }
+        }
+    }]
 };
