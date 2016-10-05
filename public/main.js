@@ -5,8 +5,8 @@
 
         let user = {login: "", email: "", password: ""};
 
-        //let addressHost = "http://javaprodaction.herokuapp.com/";
-        let addressHost = "http://localhost:8080/";
+        let addressHost = "http://javaprodaction.herokuapp.com/";
+        //let addressHost = "http://localhost:8080/";
         window.addressHost = addressHost;
 
         let Button = window.Button;
