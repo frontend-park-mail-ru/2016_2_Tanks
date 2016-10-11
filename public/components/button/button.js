@@ -2,11 +2,12 @@
 	'use strict';
 
 	class Button {
-		constructor (options={className:"",text:""}) {
-			this.className = options.className;
-			this.text = options.text;
+		constructor (options={}) {
+
 			this.attrs = options.attrs || [];
 			this.el = document.createElement('button');
+			this.el.className = options.className;
+			this.el.innerHTML = options.text;
 		}
 
 		setAttrs (attrs) {

@@ -4,8 +4,8 @@ function detectSession(user, allPages) {
 
 
     if (xhr.status === 401) {
-        allPages.signUpPage.hidden = false;
-        allPages.signInPage.hidden = false;
+
+      startPage(user, allPages);
     }
     else {
         let responseDataFields = JSON.parse(xhr.response);
@@ -36,10 +36,10 @@ function initSignUp(user, allPages) {
 function initLogoutandUserDelPage(user, allPages) {
     'use strict';
 
-    allPages.signUpPage.hidden = true;
-    allPages.signInPage.hidden = true;
-    allPages.logoutPage.hidden = false;
-    allPages.delUserPage.hidden = false;
+    allPages.signUpDiv.hidden = true;
+    allPages.signInDiv.hidden = true;
+    allPages.logoutDiv.hidden = false;
+    allPages.delUserDiv.hidden = false;
 
     allPages.formLogout.reFill({
         data: {
@@ -62,6 +62,9 @@ function initLogoutandUserDelPage(user, allPages) {
         }
     });
 }
+
+
+
 
 function initSignIn(user, allPages) {
     'use strict';
@@ -86,10 +89,10 @@ function initSignIn(user, allPages) {
 function initLogout(user, allPages) {
     'use strict';
 
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.signUpPage.hidden = false;
-    allPages.signInPage.hidden = false;
+    allPages.logoutDiv.hidden = true;
+    allPages.delUserDiv.hidden = true;
+    allPages.signUpDiv.hidden = false;
+    allPages.signInDiv.hidden = false;
 
     let xhr = sendRequest('DELETE', 'session');
 
@@ -100,10 +103,10 @@ function initLogout(user, allPages) {
 function initDelUser(user, allPages) {
     'use strict';
 
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.signUpPage.hidden = false;
-    allPages.signInPage.hidden = false;
+    allPages.logoutDiv.hidden = true;
+    allPages.delUserDiv.hidden = true;
+    allPages.signUpDiv.hidden = false;
+    allPages.signInDiv.hidden = false;
 
     let xhr = sendRequest('DELETE', 'user');
 
@@ -119,6 +122,14 @@ function sendRequest(method, url, object) {
     xhr.send(JSON.stringify(object));
 
     return xhr;
+}
+
+
+function startPage (user, allPages) {
+
+    allPages.buttonPlayDiv.hidden = false;
+    allPages.buttonSignInDiv.hidden = false;
+    allPages.buttonSignUpDiv.hidden = false;
 }
 
 

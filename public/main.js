@@ -41,5 +41,6 @@
 
             initDelUser(user, allPages);
         });
+
     }
 })();
