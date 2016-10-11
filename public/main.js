@@ -17,17 +17,17 @@
 
         detectSession(user, allPages);
 
-        allPages.formLogin.on('submit', event => {
+        allPages.formSignUp.on('submit', event => {
             event.preventDefault();
 
-            initLogin(user, allPages);
+            initSignUp(user, allPages);
 
         });
 
-        allPages.formSignin.on('submit', event => {
+        allPages.formSignIn.on('submit', event => {
             event.preventDefault();
 
-            initSignin(user, allPages);
+            initSignIn(user, allPages);
         });
 
         allPages.formLogout.on('submit', event=> {
@@ -43,4 +43,3 @@
         });
     }
 })();
-

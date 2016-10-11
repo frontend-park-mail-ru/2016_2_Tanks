@@ -1,17 +1,17 @@
 function startInit(allPages) {
     'use strict';
 
-    let loginPage = document.createElement('div');
-    loginPage.classList.add('js-login');
-    let signinPage = document.createElement('div');
-    signinPage.classList.add('js-signin');
+    let signUpPage = document.createElement('div');
+    signUpPage.classList.add('js-signup');
+    let signInPage = document.createElement('div');
+    signInPage.classList.add('js-signin');
     let logoutPage = document.createElement('div');
     logoutPage.classList.add('js-logout');
     let delUserPage = document.createElement('div');
     delUserPage.classList.add('js-deleteuser');
 
-    allPages.appendChild(loginPage);
-    allPages.appendChild(signinPage);
+    allPages.appendChild(signUpPage);
+    allPages.appendChild(signInPage);
     allPages.appendChild(logoutPage);
     allPages.appendChild(delUserPage);
 
@@ -45,10 +45,10 @@ function startInit(allPages) {
             ]
         }
     });
-    let formLogin = new Form({
+    let formSignUp = new Form({
         el: document.createElement('div'),
         data: {
-            title: 'Hi! Please login',
+            title: 'Hi! Please sign up',
             fields: [
                 {
                     name: 'login',
@@ -68,7 +68,7 @@ function startInit(allPages) {
             ],
             controls: [
                 {
-                    text: 'LogIn',
+                    text: 'Sign Up',
                     attrs: {
                         type: 'submit'
                     }
@@ -76,10 +76,10 @@ function startInit(allPages) {
             ]
         }
     });
-    let formSignin = new Form({
+    let formSignIn = new Form({
         el: document.createElement('div'),
         data: {
-            title: 'Hi! Please signin',
+            title: 'Hi! Please sign in',
             fields: [
                 {
                     name: 'login',
@@ -104,23 +104,23 @@ function startInit(allPages) {
     });
 
     logoutPage.appendChild(formLogout.el);
-    loginPage.appendChild(formLogin.el);
-    signinPage.appendChild(formSignin.el);
+    signUpPage.appendChild(formSignUp.el);
+    signInPage.appendChild(formSignIn.el);
     delUserPage.appendChild(formDelUser.el);
 
     allPages.formLogout = formLogout;
-    allPages.formSignin = formSignin;
-    allPages.formLogin = formLogin;
+    allPages.formSignIn = formSignIn;
+    allPages.formSignUp = formSignUp;
     allPages.formDelUser = formDelUser;
 
-    allPages.loginPage = loginPage;
-    allPages.signinPage = signinPage;
+    allPages.signUpPage = signUpPage;
+    allPages.signInPage = signInPage;
     allPages.logoutPage = logoutPage;
     allPages.delUserPage = delUserPage;
 
     logoutPage.hidden = true;
     delUserPage.hidden = true;
-    loginPage.hidden = true;
-    signinPage.hidden = true;
+    signUpPage.hidden = true;
+    signInPage.hidden = true;
 
 };

@@ -4,8 +4,8 @@ function detectSession(user, allPages) {
 
 
     if (xhr.status === 401) {
-        allPages.loginPage.hidden = false;
-        allPages.signinPage.hidden = false;
+        allPages.signUpPage.hidden = false;
+        allPages.signInPage.hidden = false;
     }
     else {
         let responseDataFields = JSON.parse(xhr.response);
@@ -16,8 +16,8 @@ function detectSession(user, allPages) {
     }
 }
 
-function initLogin(user, allPages) {
-    let formData = allPages.formLogin.getFormData();
+function initSignUp(user, allPages) {
+    let formData = allPages.formSignUp.getFormData();
 
     let xhr = sendRequest('POST', 'user', formData);
 
@@ -36,8 +36,8 @@ function initLogin(user, allPages) {
 function initLogoutandUserDelPage(user, allPages) {
     'use strict';
 
-    allPages.loginPage.hidden = true;
-    allPages.signinPage.hidden = true;
+    allPages.signUpPage.hidden = true;
+    allPages.signInPage.hidden = true;
     allPages.logoutPage.hidden = false;
     allPages.delUserPage.hidden = false;
 
@@ -63,10 +63,10 @@ function initLogoutandUserDelPage(user, allPages) {
     });
 }
 
-function initSignin(user, allPages) {
+function initSignIn(user, allPages) {
     'use strict';
 
-    let formData = allPages.formSignin.getFormData();
+    let formData = allPages.formSignIn.getFormData();
     user.login = formData['login'];
     user.password = formData['password'];
 
@@ -88,8 +88,8 @@ function initLogout(user, allPages) {
 
     allPages.logoutPage.hidden = true;
     allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
+    allPages.signUpPage.hidden = false;
+    allPages.signInPage.hidden = false;
 
     let xhr = sendRequest('DELETE', 'session');
 
@@ -102,8 +102,8 @@ function initDelUser(user, allPages) {
 
     allPages.logoutPage.hidden = true;
     allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
+    allPages.signUpPage.hidden = false;
+    allPages.signInPage.hidden = false;
 
     let xhr = sendRequest('DELETE', 'user');
 
