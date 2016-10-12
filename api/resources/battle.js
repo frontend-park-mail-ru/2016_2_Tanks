@@ -1,12 +1,12 @@
 exports.get = {
-	"tags": ["session"],
-	"description": "Метод получает авторизационную сессию",
+	"tags": ["battle"],
+	"description": "Метод получает адрес данной игры",
 
 	"responses": {
 		"200": {
-			"description": "Пользователь",
+			"description": "Id игры",
 			"schema": {
-				"$ref": "#/definitions/User"
+				"$ref": "#/definitions/Battle"
 			}
 		},
 		"401": {
@@ -23,17 +23,25 @@ exports.get = {
 			"headers": {
 				"content-type": "application/json"
 			},
-			"data":{
-				"login": "test",
-				"password": "testpwd"
+			"data" : {
+				"id" : Math.floor(Math.random() * 10000)
+			},
+			"validator": function (res) {
+
+				if (typeof res.id !== 'number' ) {
+					return 'не корректный id';
+				}
+
+				return true;
 			}
 		}
 	}]
+
 };
 
 exports.post = {
-	"tags": ["session"],
-	"description": "Метод логина пользователя",
+	"tags": ["battle"],
+	"description": "Метод входа в игру",
 	"parameters": [
 		{
 			"name": "login",
@@ -48,9 +56,12 @@ exports.post = {
 	],
 	"responses": {
 		"200": {
-			"description": "Вход выполнен"
+			"description": "Id сессии",
+			"schema": {
+				"$ref": "#/definitions/Session"
+			}
 		},
-		"401": {
+		"400": {
 			"description": "Ошибка при выполнении запроса"
 		}
 	},
@@ -58,28 +69,36 @@ exports.post = {
 		"description": "логин пользователя",
 		"request": {
 			"params": {
-				"login": "test",
-				"password": "testpwd"
+				"login": "dmitrydorofeev",
+				"password": "veeforodyrtimd"
 			}
 		},
 		"response": {
 			"status": 200,
 			"headers": {
 				"content-type": "application/json"
+			},
+			"validator": function (res) {
+
+				if (typeof res.id !== 'number' ) {
+					return 'не корректный id';
+				}
+
+				return true;
 			}
 		}
 	}]
 };
 
 exports.delete = {
-	"tags": ["session"],
+	"tags": ["battle"],
 	"description": "Метод логаута пользователя",
 
 	"responses": {
 		"200": {
-			"description": "Пользователь успешно вышел"
+			"description": "Успешный запрос"
 		},
-		"403": {
+		"400": {
 			"description": "Ошибка при выполнении запроса"
 		}
 	},

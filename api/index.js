@@ -7,16 +7,17 @@ module.exports = {
 	},
 	"basePath": "/api",
 	"schemes": ["http"],
-   	"host": "http://localhost:3000",
+   	"host": " http://tankssteam.herokuapp.com",
 
 	paths: {
 		'/session': require('./resources/session'),
 		'/user': require('./resources/user'),
+		'/battle': require('./resources/battle')
 	},
 
 	definitions: {
-		Session: require('./scheme/Session'),
 		User: require('./scheme/User'),
+		Battle: require('./scheme/Battle')
 	}
 
 }

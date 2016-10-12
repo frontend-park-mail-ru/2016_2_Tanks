@@ -42,6 +42,10 @@
                         <td><a href="#operation--session-delete">DELETE /session</a></td>
                         <td></td>
                     </tr>
+                    <tr>
+                        <td><a href="#operation--battle-delete">DELETE /battle</a></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
             <h3 id="tag-user" class="swagger-summary-tag">Tag: user</h3>
@@ -73,6 +77,27 @@
                     </tr>
                 </tbody>
             </table>
+            <h3 id="tag-battle" class="swagger-summary-tag">Tag: battle</h3>
+            <p></p>
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--battle-get">GET /battle</a></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--battle-post">POST /battle</a></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         
     
     
@@ -80,11 +105,11 @@
     <h2>Paths</h2>
     
         
-        <span id="path--session"></span>
-            <div id="operation--session-delete" class="swagger--panel-operation-delete panel">
+        <span id="path--battle"></span>
+            <div id="operation--battle-delete" class="swagger--panel-operation-delete panel">
                 <div class="panel-heading">
                     <div class="operation-summary"></div>
-                    <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/session</strong></h3>
+                    <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/battle</strong></h3>
                         Tags:
                             <a href="#tag-session">session</a>
                 </div>
@@ -135,16 +160,16 @@
                             </dl>
                         </section>
                 </div>
-            </div>    <div id="operation--session-get" class="swagger--panel-operation-get panel">
+            </div>    <div id="operation--battle-get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
                     <div class="operation-summary"></div>
-                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/session</strong></h3>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/battle</strong></h3>
                         Tags:
-                            <a href="#tag-session">session</a>
+                            <a href="#tag-battle">battle</a>
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        <p>Метод получает авторизационную сессию</p>
+                        <p>Метод получает адрес данной игры</p>
             
                     </section>
                     
@@ -159,7 +184,7 @@
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <p>Id сессии</p>
+                                                    <p>Id игры</p>
                                             
                                                 </div>
                                             </div>
@@ -168,7 +193,7 @@
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Session">Session</a>
+                                                                <a class="json-schema-ref" href="#/definitions/Battle">Battle</a>
                                                     </div>
                                                 </div></div>
                                             
@@ -193,16 +218,16 @@
                             </dl>
                         </section>
                 </div>
-            </div>    <div id="operation--session-post" class="swagger--panel-operation-post panel">
+            </div>    <div id="operation--battle-post" class="swagger--panel-operation-post panel">
                 <div class="panel-heading">
                     <div class="operation-summary"></div>
-                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/session</strong></h3>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/battle</strong></h3>
                         Tags:
-                            <a href="#tag-session">session</a>
+                            <a href="#tag-battle">battle</a>
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        <p>Метод логина пользователя</p>
+                        <p>Метод входа в игру</p>
             
                     </section>
                     
@@ -293,17 +318,129 @@
                         </section>
                 </div>
             </div>    
-        <span id="path--user"></span>
-            <div id="operation--user-delete" class="swagger--panel-operation-delete panel">
+        <span id="path--session"></span>
+            <div id="operation--session-delete" class="swagger--panel-operation-delete panel">
                 <div class="panel-heading">
                     <div class="operation-summary"></div>
-                    <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/user</strong></h3>
+                    <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/session</strong></h3>
                         Tags:
-                            <a href="#tag-user">user</a>
+                            <a href="#tag-session">session</a>
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        <p>Метод удаления пользователя</p>
+                        <p>Метод логаута пользователя</p>
+            
+                    </section>
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Пользователь успешно вышел</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Ошибка при выполнении запроса</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    <div id="operation--session-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary"></div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/session</strong></h3>
+                        Tags:
+                            <a href="#tag-session">session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Метод получает авторизационную сессию</p>
+            
+                    </section>
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Пользователь</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Ошибка</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    <div id="operation--session-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary"></div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/session</strong></h3>
+                        Tags:
+                            <a href="#tag-session">session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Метод логина пользователя</p>
             
                     </section>
                     
@@ -321,16 +458,28 @@
                                 <tbody>
                                         <tr>
                                             <td>
-                                                id
-                                            <td><p>Id сессии</p>
+                                                login
+                                            <td><p>Логин пользователя</p>
                                         </td>
-                                            <td>path</td>
-                                            <td><span class="json-property-type">integer</span>
+                                            <td></td>
+                                            <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
                                         
                                             </td>
                                             <td>
-                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                password
+                                            <td><p>Пароль пользователя</p>
+                                        </td>
+                                            <td></td>
+                                            <td><span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
                                             </td>
                                         </tr>
                                 </tbody>
@@ -347,7 +496,63 @@
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <p>Успешный запрос</p>
+                                                    <p>Вход выполнен</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Ошибка при выполнении запроса</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--user"></span>
+            <div id="operation--user-delete" class="swagger--panel-operation-delete panel">
+                <div class="panel-heading">
+                    <div class="operation-summary"></div>
+                    <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/user</strong></h3>
+                        Tags:
+                            <a href="#tag-user">user</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Метод удаления пользователя</p>
+            
+                    </section>
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Пользователь удалён</p>
                                             
                                                 </div>
                                             </div>
@@ -390,35 +595,6 @@
             
                     </section>
                     
-                        <section class="sw-request-params">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-param-name"></th>
-                                    <th class="sw-param-description"></th>
-                                    <th class="sw-param-type"></th>
-                                    <th class="sw-param-data-type"></th>
-                                    <th class="sw-param-annotation"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                id
-                                            <td><p>Id сессии</p>
-                                        </td>
-                                            <td>path</td>
-                                            <td><span class="json-property-type">integer</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                     
                         <section class="sw-responses">
                     
@@ -492,7 +668,7 @@
                                         <tr>
                                             <td>
                                                 email
-                                            <td><p>Логин пользователя</p>
+                                            <td><p>Email пользователя</p>
                                         </td>
                                             <td></td>
                                             <td><span class="json-property-type">string</span>
@@ -542,18 +718,14 @@
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <p>Id сессии</p>
+                                                    <p>Пользоатель добавлен</p>
                                             
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 
                                                 <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Session">Session</a>
-                                                    </div>
-                                                </div></div>
+                                            </div>
                                             
                                             </div>                </dd>
                                     <dt class="sw-response-403">
@@ -603,16 +775,28 @@
                                 <tbody>
                                         <tr>
                                             <td>
-                                                id
-                                            <td><p>Id сессии</p>
+                                                email
+                                            <td><p>Email пользователя</p>
                                         </td>
-                                            <td>path</td>
-                                            <td><span class="json-property-type">integer</span>
+                                            <td></td>
+                                            <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
                                         
                                             </td>
                                             <td>
-                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                password
+                                            <td><p>Пароль пользователя</p>
+                                        </td>
+                                            <td></td>
+                                            <td><span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
                                             </td>
                                         </tr>
                                 </tbody>
@@ -629,18 +813,14 @@
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <p>Id  сессии</p>
+                                                    <p>Пользователь изменён</p>
                                             
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 
                                                 <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Session">Session</a>
-                                                    </div>
-                                                </div></div>
+                                            </div>
                                             
                                             </div>                </dd>
                                     <dt class="sw-response-403">
@@ -670,9 +850,9 @@
         <h2>Schema definitions</h2>
     
             
-                <div id="definition-Session" class="panel panel-definition">
+                <div id="definition-Battle" class="panel panel-definition">
                         <div class="panel-heading">
-                                <h3 class="panel-title"><a name="/definitions/Session"></a>Session:
+                                <h3 class="panel-title"><a name="/definitions/Battle"></a>Battle:
                                     <span class="json-property-type"><span class="json-property-type">object</span>
                 <span class="json-property-range" title="Value limits"></span>
                 
@@ -722,20 +902,6 @@
                             
                                     <section class="json-schema-properties">
                                         <dl>
-                                                <dt data-property-name="id">
-                                                    <span class="json-property-name">id:</span>
-                                                    <span class="json-property-type">integer</span>
-                                                    <span class="json-property-range" title="Value limits">, { x ∈ ℤ | x ≥ 0 }</span>
-                                                    
-                                                        <span class="json-property-required"></span>
-                                                </dt>
-                                                <dd>
-                                                    <p>Id авторизационной сессии</p>
-                                    
-                                                    <div class="json-inner-schema">
-                                                        
-                                                    </div>
-                                                </dd>
                                                 <dt data-property-name="email">
                                                     <span class="json-property-name">email:</span>
                                                     <span class="json-property-type">string</span>
