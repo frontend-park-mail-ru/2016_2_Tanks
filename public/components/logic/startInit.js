@@ -9,12 +9,22 @@ function startInit(allPages) {
     logoutDiv.classList.add('js-logout');
     let delUserDiv = document.createElement('div');
     delUserDiv.classList.add('js-deleteuser');
+
     let buttonPlayDiv = document.createElement('div');
     buttonPlayDiv.classList.add('js-buttonPlay');
     let buttonSignInDiv = document.createElement('div');
     buttonSignInDiv.classList.add('js-buttonSignIn');
     let buttonSignUpDiv = document.createElement('div');
     buttonSignUpDiv.classList.add('js-buttonSignUp');
+    let buttonBackDiv = document.createElement('div');
+    buttonBackDiv.classList.add('js-buttonBack');
+    let buttonJoinDiv = document.createElement('div');
+    buttonJoinDiv.classList.add('js-buttonJoin');
+    let buttonWithFriendsDiv = document.createElement('div');
+    buttonWithFriendsDiv.classList.add('js-with-friends');
+    let buttonSignOutDiv = document.createElement('div');
+    buttonSignOutDiv.classList.add('js-sign-out');
+
 
 
 
@@ -22,9 +32,18 @@ function startInit(allPages) {
     allPages.appendChild(signInDiv);
     allPages.appendChild(logoutDiv);
     allPages.appendChild(delUserDiv);
+
     allPages.appendChild(buttonPlayDiv);
     allPages.appendChild(buttonSignInDiv);
     allPages.appendChild(buttonSignUpDiv);
+    allPages.appendChild(buttonBackDiv);
+    allPages.appendChild(buttonJoinDiv);
+    allPages.appendChild(buttonWithFriendsDiv);
+    allPages.appendChild(buttonSignOutDiv);
+
+
+
+
 
     let formLogout = new Form({
         el: document.createElement('div'),
@@ -126,39 +145,67 @@ function startInit(allPages) {
       className: 'button_Sign_Up',
       text: "Sign Up"
     });
+    let buttonBack = new Button ({
+      className: 'button_Back',
+      text: "Back"
+    });
+    let buttonJoin = new Button ({
+      className: 'button_Join',
+      text: "Join alone"
+    });
+    let buttonWithFriends = new Button ({
+      className: 'button_With_Friends',
+      text: "With friends"
+    });
+    let buttonSignOut = new Button ({
+      className: 'button-Sign-Out',
+      text: "sign out"
+    });
+
 
 
     logoutDiv.appendChild(formLogout.el);
     signUpDiv.appendChild(formSignUp.el);
     signInDiv.appendChild(formSignIn.el);
     delUserDiv.appendChild(formDelUser.el);
+
     buttonPlayDiv.appendChild(buttonPlay.el);
     buttonSignInDiv.appendChild(buttonSignIn.el);
     buttonSignUpDiv.appendChild(buttonSignUp.el);
+    buttonBackDiv.appendChild(buttonBack.el);
+    buttonJoinDiv.appendChild(buttonJoin.el);
+    buttonWithFriendsDiv.appendChild(buttonWithFriends.el);
+    buttonSignOutDiv.appendChild(buttonSignOut.el);
+
+
 
     allPages.formLogout = formLogout;
     allPages.formSignIn = formSignIn;
     allPages.formSignUp = formSignUp;
     allPages.formDelUser = formDelUser;
+
     allPages.buttonPlay = buttonPlay;
     allPages.buttonSignIn = buttonSignIn;
     allPages.buttonSignUp = buttonSignUp;
+    allPages.buttonBack = buttonBack;
+    allPages.buttonJoin = buttonJoin;
+    allPages.buttonWithFriends = buttonWithFriends;
+    allPages.buttonSignOut = buttonSignOut;
+
+
+
 
     allPages.signUpDiv = signUpDiv;
     allPages.signInDiv = signInDiv;
     allPages.logoutDiv = logoutDiv;
     allPages.delUserDiv = delUserDiv;
+
     allPages.buttonPlayDiv = buttonPlayDiv;
     allPages.buttonSignInDiv = buttonSignInDiv;
     allPages.buttonSignUpDiv = buttonSignUpDiv;
-
-    logoutDiv.hidden = true;
-    delUserDiv.hidden = true;
-    signUpDiv.hidden = true;
-    signInDiv.hidden = true;
-    buttonPlayDiv.hidden = true;
-    buttonSignInDiv.hidden = true;
-    buttonSignUpDiv.hidden = true;
-
+    allPages.buttonBackDiv = buttonBackDiv;
+    allPages.buttonJoinDiv = buttonJoinDiv;
+    allPages.buttonWithFriendsDiv = buttonWithFriendsDiv;
+    allPages.buttonSignOutDiv = buttonSignOutDiv;
 
 };

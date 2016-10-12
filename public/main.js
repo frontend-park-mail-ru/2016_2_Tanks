@@ -42,5 +42,37 @@
             initDelUser(user, allPages);
         });
 
+
+
+        allPages.buttonSignUp.on('click', event=>{
+          event.preventDefault();
+
+          signUpPage(user, allPages);
+        });
+        allPages.buttonSignIn.on('click', event=>{
+          event.preventDefault();
+
+          signInPage(user, allPages);
+        });
+        allPages.buttonBack.on('click', event=>{
+          event.preventDefault();
+
+          startPage(user, allPages);
+        });
+        allPages.buttonJoin.on('click', event=>{
+          event.preventDefault();
+
+          alert('button join')
+        });
+        allPages.buttonWithFriends.on('click', event=>{
+          event.preventDefault();
+
+          alert('button with friends')
+        });
+        allPages.buttonSignOut.on('click', event=>{
+          event.preventDefault();
+
+          initSignOut(user, allPages);
+        });
     }
 })();

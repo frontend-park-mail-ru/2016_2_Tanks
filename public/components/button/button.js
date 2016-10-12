@@ -25,13 +25,13 @@
 			return this;
 		}
 
-/*
+
 		on(type, callback) {
 			//this.el.querySelector('button').addEventListener(type, callback, false);
-			console.log("ok")
+			console.log("button.on is working");
 			this.el.addEventListener(type, callback, false);
 		}
-*/
+
 
 		toString () {
 			return this.el.outerHTML;

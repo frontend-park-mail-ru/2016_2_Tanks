@@ -2,7 +2,6 @@ function detectSession(user, allPages) {
     'use strict';
     let xhr = sendRequest('GET', 'session');
 
-
     if (xhr.status === 401) {
 
       startPage(user, allPages);
@@ -12,11 +11,14 @@ function detectSession(user, allPages) {
         user.login = responseDataFields['login'];
         user.email = responseDataFields['email'];
 
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
 }
 
+
+
 function initSignUp(user, allPages) {
+    'use strict';
     let formData = allPages.formSignUp.getFormData();
 
     let xhr = sendRequest('POST', 'user', formData);
@@ -26,43 +28,12 @@ function initSignUp(user, allPages) {
         user.email = formData['email'];
         user.password = formData['password'];
 
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
     else {
-        alert("this login is zanet");
+        alert("this login is already used");
     }
 }
-
-function initLogoutandUserDelPage(user, allPages) {
-    'use strict';
-
-    allPages.signUpDiv.hidden = true;
-    allPages.signInDiv.hidden = true;
-    allPages.logoutDiv.hidden = false;
-    allPages.delUserDiv.hidden = false;
-
-    allPages.formLogout.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-    allPages.formDelUser.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-}
-
 
 
 
@@ -79,42 +50,30 @@ function initSignIn(user, allPages) {
     user.email = responseDataFields['email'];
 
     if (xhr.status === 200) {
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
     else {
         alert("wrong password");
     }
 }
 
-function initLogout(user, allPages) {
-    'use strict';
 
-    allPages.logoutDiv.hidden = true;
-    allPages.delUserDiv.hidden = true;
-    allPages.signUpDiv.hidden = false;
-    allPages.signInDiv.hidden = false;
+
+function initSignOut(user, allPages) {
+    'use strict';
 
     let xhr = sendRequest('DELETE', 'session');
 
     if (xhr.status != 403)
         alert(`by, ${user.login}`);
+        startPage(user, allPages);
 }
 
-function initDelUser(user, allPages) {
-    'use strict';
 
-    allPages.logoutDiv.hidden = true;
-    allPages.delUserDiv.hidden = true;
-    allPages.signUpDiv.hidden = false;
-    allPages.signInDiv.hidden = false;
-
-    let xhr = sendRequest('DELETE', 'user');
-
-    if (xhr.status != 403)
-        alert(`by, ${user.login} you are deleted`);
-}
 
 function sendRequest(method, url, object) {
+    'use strict';
+
     let xhr = new XMLHttpRequest();
     xhr.open(method, addressHost + 'api/'+url, false);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -125,16 +84,10 @@ function sendRequest(method, url, object) {
 }
 
 
-function startPage (user, allPages) {
-
-    allPages.buttonPlayDiv.hidden = false;
-    allPages.buttonSignInDiv.hidden = false;
-    allPages.buttonSignUpDiv.hidden = false;
-}
-
 
 ////////////////////////////////////////
 function parseJSON(data) {
+    'use strict';
     let dataFields = [];
     if (!data)
         return [];
