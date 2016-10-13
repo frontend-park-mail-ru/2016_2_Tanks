@@ -2,22 +2,24 @@ function detectSession(user, allPages) {
     'use strict';
     let xhr = sendRequest('GET', 'session');
 
-
     if (xhr.status === 401) {
-        allPages.loginPage.hidden = false;
-        allPages.signinPage.hidden = false;
+
+      startPage(user, allPages);
     }
     else {
         let responseDataFields = JSON.parse(xhr.response);
         user.login = responseDataFields['login'];
         user.email = responseDataFields['email'];
 
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
 }
 
-function initLogin(user, allPages) {
-    let formData = allPages.formLogin.getFormData();
+
+
+function initSignUp(user, allPages) {
+    'use strict';
+    let formData = allPages.formSignUp.getFormData();
 
     let xhr = sendRequest('POST', 'user', formData);
 
@@ -26,47 +28,19 @@ function initLogin(user, allPages) {
         user.email = formData['email'];
         user.password = formData['password'];
 
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
     else {
-        alert("this login is zanet");
+        alert("this login is already used");
     }
 }
 
-function initLogoutandUserDelPage(user, allPages) {
+
+
+function initSignIn(user, allPages) {
     'use strict';
 
-    allPages.loginPage.hidden = true;
-    allPages.signinPage.hidden = true;
-    allPages.logoutPage.hidden = false;
-    allPages.delUserPage.hidden = false;
-
-    allPages.formLogout.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-    allPages.formDelUser.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-}
-
-function initSignin(user, allPages) {
-    'use strict';
-
-    let formData = allPages.formSignin.getFormData();
+    let formData = allPages.formSignIn.getFormData();
     user.login = formData['login'];
     user.password = formData['password'];
 
@@ -76,42 +50,30 @@ function initSignin(user, allPages) {
     user.email = responseDataFields['email'];
 
     if (xhr.status === 200) {
-        initLogoutandUserDelPage(user, allPages);
+        mainPage(user, allPages);
     }
     else {
         alert("wrong password");
     }
 }
 
-function initLogout(user, allPages) {
-    'use strict';
 
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
+
+function initSignOut(user, allPages) {
+    'use strict';
 
     let xhr = sendRequest('DELETE', 'session');
 
     if (xhr.status != 403)
         alert(`by, ${user.login}`);
+        startPage(user, allPages);
 }
 
-function initDelUser(user, allPages) {
-    'use strict';
 
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
-
-    let xhr = sendRequest('DELETE', 'user');
-
-    if (xhr.status != 403)
-        alert(`by, ${user.login} you are deleted`);
-}
 
 function sendRequest(method, url, object) {
+    'use strict';
+
     let xhr = new XMLHttpRequest();
     xhr.open(method, addressHost + 'api/'+url, false);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -122,8 +84,10 @@ function sendRequest(method, url, object) {
 }
 
 
+
 ////////////////////////////////////////
 function parseJSON(data) {
+    'use strict';
     let dataFields = [];
     if (!data)
         return [];

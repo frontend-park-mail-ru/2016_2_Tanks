@@ -17,17 +17,17 @@
 
         detectSession(user, allPages);
 
-        allPages.formLogin.on('submit', event => {
+        allPages.formSignUp.on('submit', event => {
             event.preventDefault();
 
-            initLogin(user, allPages);
+            initSignUp(user, allPages);
 
         });
 
-        allPages.formSignin.on('submit', event => {
+        allPages.formSignIn.on('submit', event => {
             event.preventDefault();
 
-            initSignin(user, allPages);
+            initSignIn(user, allPages);
         });
 
         allPages.formLogout.on('submit', event=> {
@@ -41,6 +41,38 @@
 
             initDelUser(user, allPages);
         });
+
+
+
+        allPages.buttonSignUp.on('click', event=>{
+          event.preventDefault();
+
+          signUpPage(user, allPages);
+        });
+        allPages.buttonSignIn.on('click', event=>{
+          event.preventDefault();
+
+          signInPage(user, allPages);
+        });
+        allPages.buttonBack.on('click', event=>{
+          event.preventDefault();
+
+          startPage(user, allPages);
+        });
+        allPages.buttonJoin.on('click', event=>{
+          event.preventDefault();
+
+          alert('button join')
+        });
+        allPages.buttonWithFriends.on('click', event=>{
+          event.preventDefault();
+
+          alert('button with friends')
+        });
+        allPages.buttonSignOut.on('click', event=>{
+          event.preventDefault();
+
+          initSignOut(user, allPages);
+        });
     }
 })();
-
