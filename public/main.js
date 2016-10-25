@@ -5,18 +5,24 @@
 
         let user = {login: "", email: "", password: ""};
 
-        let addressHost = "http://javaprodaction.herokuapp.com/";
-        //let addressHost = "http://localhost:8080/";
+        //let addressHost = "http://javaprodaction.herokuapp.com/";
+        let addressHost = "http://localhost:8080/";
         window.addressHost = addressHost;
 
-        let Button = window.Button;
-        let Form = window.Form;
-
+        const Router = window.Router;
+        const MainView = window.MainView;
+        const SignInView = window.SignInView;
+/*
         let allPages = document.querySelector('.js-allforms');
         startInit(allPages);
 
-        detectSession(user, allPages);
+        detectSession(user, allPages);*/
 
+        (new Router)
+            .addRoute('/signin', SignInView)
+            .addRoute('/', MainView)
+            .start();
+        /*
         allPages.formLogin.on('submit', event => {
             event.preventDefault();
 
@@ -40,7 +46,7 @@
             event.preventDefault();
 
             initDelUser(user, allPages);
-        });
+        });*/
     }
 })();
 
