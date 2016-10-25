@@ -8,6 +8,9 @@ const technoDoc = require('techno-gendoc');
 
 // let path = require('path');
 
+app.use('/start', express.static('public', {maxAge: 1}));
+app.use('/login', express.static('public', {maxAge: 1}));
+app.use('/signup', express.static('public', {maxAge: 1}));
 app.use('/signin', express.static('public', {maxAge: 1}));
 app.use('/', express.static('public', {maxAge: 1}));
 technoDoc.generate(require('./api'), 'public');

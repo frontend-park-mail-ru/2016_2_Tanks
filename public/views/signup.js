@@ -4,29 +4,34 @@
 	const View = window.View;
 	const Form = window.Form;
 
-	class SignInView extends View {
+	class SignUpView extends View {
 		constructor(options = {}) {
 			super(options);
 			let allPages = document.querySelector('.js-allforms');
 
-			let signInPage = document.createElement('div');
-			signInPage.classList.add('js-signin');
+			let signUpPage = document.createElement('div');
+			signUpPage.classList.add('js-signup');
 
-			allPages.appendChild(signInPage);
+			allPages.appendChild(signUpPage);
 
-			this._el = document.querySelector('.js-allforms').querySelector(".js-signin");
+			this._el = document.querySelector('.js-allforms').querySelector(".js-signup");
 			this.hide();
 
 
-			let signInForm = new Form({
+			let signUpForm = new Form({
 				el: document.createElement('div'),
 				data: {
-					title: 'Hi! Please signin',
+					title: 'Hi! Please signup',
 					fields: [
 						{
 							name: 'login',
 							type: 'text',
 							attrs: 'autofocus placeholder="Login" required '
+						},
+						{
+							name: 'email',
+							type: 'email',
+							attrs: 'placeholder="E-mail" required '
 						},
 						{
 							name: 'password',
@@ -36,7 +41,7 @@
 					],
 					controls: [
 						{
-							text: 'Sign In',
+							text: 'Sign Up',
 							attrs: {
 								type: 'submit'
 							}
@@ -45,10 +50,10 @@
 				}
 			});
 
-			signInPage.appendChild(signInForm.el);
+			signUpPage.appendChild(signUpForm.el);
 
-			allPages.signInForm = signInForm;
-			allPages.signInPage = signInPage;
+			allPages.signUpForm = signUpForm;
+			allPages.signUpPage = signUpPage;
 
 			let backButton = new Button({
 				text: 'back',
@@ -60,23 +65,21 @@
 				event.preventDefault();
 				this.router.back();
 			});
-			signInPage.appendChild(backButton.el);
+			signUpPage.appendChild(backButton.el);
 
-			signInForm.on('submit', event => {
+			signUpForm.on('submit', event => {
 				event.preventDefault();
 
-				let isGoodSingIn = initSignin(signInForm.getFormData());
-				if(isGoodSingIn){
+				let isGoodSingUp = initSignup(signUpForm.getFormData());
+				if(isGoodSingUp){
 					window.user.online = true;
 					this.router.go('/login');
 				}
 				else {
-					alert("this wrong password");
+					alert("this login is zanet");
 				}
 			});
-
 		}
-
 
 		init(options = {}) {
 			this.show();
@@ -93,6 +96,6 @@
 
 
 	// export
-	window.SignInView = SignInView;
+	window.SignUpView = SignUpView;
 
 })();

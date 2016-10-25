@@ -1,72 +1,28 @@
-function detectSession(user, allPages) {
+function detectSession() {
     'use strict';
     let xhr = sendRequest('GET', 'session');
 
+    if (xhr === null)
+        alert("sorry, server error");
+
+    window.user={online:false};
 
     if (xhr.status === 401) {
-        allPages.loginPage.hidden = false;
-        allPages.signinPage.hidden = false;
+        return window.user;
     }
     else {
         let responseDataFields = JSON.parse(xhr.response);
-        user.login = responseDataFields['login'];
-        user.email = responseDataFields['email'];
+        window.user.login = responseDataFields['login'];
+        window.user.email = responseDataFields['email'];
+        window.user.online = true;
 
-        initLogoutandUserDelPage(user, allPages);
+        return window.user;
     }
 }
 
-function initLogin(user, allPages) {
-    let formData = allPages.formLogin.getFormData();
-
-    let xhr = sendRequest('POST', 'user', formData);
-
-    if (xhr.status === 200) {
-        user.login = formData['login'];
-        user.email = formData['email'];
-        user.password = formData['password'];
-
-        initLogoutandUserDelPage(user, allPages);
-    }
-    else {
-        alert("this login is zanet");
-    }
-}
-
-function initLogoutandUserDelPage(user, allPages) {
+function initSignin(formData) {
     'use strict';
 
-    allPages.loginPage.hidden = true;
-    allPages.signinPage.hidden = true;
-    allPages.logoutPage.hidden = false;
-    allPages.delUserPage.hidden = false;
-
-    allPages.formLogout.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-    allPages.formDelUser.reFill({
-        data: {
-            title: 'Hi! ' + user.login,
-            fields: [
-                {
-                    text: user.email
-                }
-            ]
-        }
-    });
-}
-
-function initSignin(user, allPages) {
-    'use strict';
-
-    let formData = allPages.formSignin.getFormData();
     user.login = formData['login'];
     user.password = formData['password'];
 
@@ -75,52 +31,90 @@ function initSignin(user, allPages) {
     let responseDataFields = JSON.parse(xhr.response);
     user.email = responseDataFields['email'];
 
-    if (xhr.status === 200) {
-        initLogoutandUserDelPage(user, allPages);
-    }
-    else {
-        alert("wrong password");
-    }
+    console.log(responseDataFields);
+    if (xhr.status === 200)
+        return true;
+    else
+        return false;
 }
-
-function initLogout(user, allPages) {
+function initSignup(formData) {
     'use strict';
 
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
+    let xhr = sendRequest('POST', 'user', formData);
+
+    if (xhr.status === 200) {
+        user.login = formData['login'];
+        user.email = formData['email'];
+        user.password = formData['password'];
+
+        return true;
+    }
+    else
+        return false;
+}
+
+function initLogout() {
+    'use strict';
 
     let xhr = sendRequest('DELETE', 'session');
 
-    if (xhr.status != 403)
-        alert(`by, ${user.login}`);
+    if (xhr.status === 200)
+        return true;
+    else
+        return false;
 }
 
-function initDelUser(user, allPages) {
+function initDelUser() {
     'use strict';
-
-    allPages.logoutPage.hidden = true;
-    allPages.delUserPage.hidden = true;
-    allPages.loginPage.hidden = false;
-    allPages.signinPage.hidden = false;
 
     let xhr = sendRequest('DELETE', 'user');
 
-    if (xhr.status != 403)
-        alert(`by, ${user.login} you are deleted`);
+    if (xhr.status === 200)
+        return true;
+    else
+        return false;
 }
 
 function sendRequest(method, url, object) {
+    let TIME_OUT = 5000;
+
     let xhr = new XMLHttpRequest();
+
+    let message = createLoadingMessage(document.querySelector('.js-allforms'), 'Loading...');
+
+    xhr.onreadystatechange = function () {
+        document.body.appendChild(message);
+        if (xhr.readyState === 4)
+            document.body.removeChild(message);
+    };
+
     xhr.open(method, addressHost + 'api/'+url, false);
+    //xhr.timeout = TIME_OUT;
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.withCredentials = true;
+
+    xhr.ontimeout = function (e) {
+        alert("sorry, server sleep");
+    };
+
     xhr.send(JSON.stringify(object));
 
     return xhr;
 }
 
+function createLoadingMessage(elem, text) {
+    let coords = elem.getBoundingClientRect();
+
+    let message = document.createElement('div');
+    message.style.cssText = "position:fixed; color: red";
+
+    message.style.left = coords.left + "px";
+    message.style.top = coords.bottom + "px";
+
+    message.innerHTML = text;
+
+    return message;
+}
 
 ////////////////////////////////////////
 function parseJSON(data) {
