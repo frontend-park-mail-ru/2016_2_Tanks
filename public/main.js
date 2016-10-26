@@ -16,11 +16,11 @@
         const SignUpView = window.SignUpView;
         const LoginView = window.LoginView;
         const MainView = window.MainView;
-/*
-        let allPages = document.querySelector('.js-allforms');
-        startInit(allPages);
+        /*
+         let allPages = document.querySelector('.js-allforms');
+         startInit(allPages);
 
-        detectSession(user, allPages);*/
+         detectSession(user, allPages);*/
 
         //(new Router)
         window.user = detectSession();
@@ -33,30 +33,30 @@
             .start();
 
         /*
-        allPages.formLogin.on('submit', event => {
-            event.preventDefault();
+         allPages.formLogin.on('submit', event => {
+         event.preventDefault();
 
-            initLogin(user, allPages);
+         initLogin(user, allPages);
 
-        });
+         });
 
-        allPages.formSignin.on('submit', event => {
-            event.preventDefault();
+         allPages.formSignin.on('submit', event => {
+         event.preventDefault();
 
-            initSignin(user, allPages);
-        });
+         initSignin(user, allPages);
+         });
 
-        allPages.formLogout.on('submit', event=> {
-            event.preventDefault();
+         allPages.formLogout.on('submit', event=> {
+         event.preventDefault();
 
-            initLogout(user, allPages);
-        });
+         initLogout(user, allPages);
+         });
 
-        allPages.formDelUser.on('submit', event=> {
-            event.preventDefault();
+         allPages.formDelUser.on('submit', event=> {
+         event.preventDefault();
 
-            initDelUser(user, allPages);
-        });*/
+         initDelUser(user, allPages);
+         });*/
     }
 })();
 
