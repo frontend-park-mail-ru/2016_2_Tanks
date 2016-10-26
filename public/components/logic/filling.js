@@ -31,7 +31,6 @@ function initSignin(formData) {
     let responseDataFields = JSON.parse(xhr.response);
     user.email = responseDataFields['email'];
 
-    console.log(responseDataFields);
     if (xhr.status === 200)
         return true;
     else
