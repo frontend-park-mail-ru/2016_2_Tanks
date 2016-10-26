@@ -4,15 +4,11 @@
   "description": "",
   "main": "public/main.js",
   "scripts": {
-    "test": "karma start --single-run",
-    "fest": "./node_modules/.bin/fest-build --dir=public/components/",
-    "karma:start": "karma start",
-    "karma:run": "karma run",
     "lint": "./node_modules/.bin/eslint **/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tupiznak/tanks.front.git"
+    "url": "git+https://github.com/tupiznak/2016_2_Tanks.git"
   },
   "engines": {
     "node": "6.3.1",
