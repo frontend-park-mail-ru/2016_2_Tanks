@@ -1,18 +1,19 @@
+
 {
-  "name": "tanks",
+  "name": "steamtanks",
   "version": "1.0.0",
   "description": "",
   "main": "public/main.js",
   "scripts": {
-    "test": "node test.js",
     "lint": "./node_modules/.bin/eslint **/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tupiznak/tanks.front.git"
+    "url": "git+https://github.com/tupiznak/2016_2_Tanks.git"
   },
   "engines": {
-    "node": "6.3.1"
+    "node": "6.3.1",
+    "npm": "3.10.3"
   },
   "keywords": [],
   "author": "",
