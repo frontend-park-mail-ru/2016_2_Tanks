@@ -1,10 +1,9 @@
 .button {
-	background-color: #beca3e;
+	background-color: transparent;
     border-radius: 100rem/25rem;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     display: block;
-    font-size: 1.1rem;
     font-weight: 700;
     height: 3.8rem;
     letter-spacing: .1rem;
@@ -17,12 +16,13 @@
     margin: 2rem auto;
     width: 25rem;
 
-
     border: 1px solid rgba(0,0,0,0.5);
     border-bottom: 3px solid rgba(0,0,0,0.5);
     -moz-box-shadow:rgba(0,0,0,0.5);
     -webkit-box-shadow:rgba(0,0,0,0.5);
     opacity: 0.7;
+
+    font-size: larger;
 }
 
 .button:hover {
