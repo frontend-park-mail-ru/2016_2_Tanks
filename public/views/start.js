@@ -17,9 +17,6 @@
 			this._el = document.querySelector('.js-allforms').querySelector(".js-start");
 			this.hide();
 
-			let backImage = new Image('/images/back.png');
-			startPage.appendChild(backImage);
-
 			let playButton = new Button({
 				className: 'play_button',
 				text: 'play',

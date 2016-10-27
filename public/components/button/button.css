@@ -1,7 +1,6 @@
 .button {
-	background-color: #4dca62;
-    border: .1rem solid #4dca62;
-    border-radius: .4rem;
+	background-color: #beca3e;
+    border-radius: 100rem/25rem;
     color: #fff;
     cursor: pointer;
     display: block;
@@ -15,5 +14,17 @@
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
-    margin: 5px auto;
+    margin: 2rem auto;
+    width: 25rem;
+
+
+    border: 1px solid rgba(0,0,0,0.5);
+    border-bottom: 3px solid rgba(0,0,0,0.5);
+    -moz-box-shadow:rgba(0,0,0,0.5);
+    -webkit-box-shadow:rgba(0,0,0,0.5);
+    opacity: 0.7;
+}
+
+.button:hover {
+    opacity: 1;
 }

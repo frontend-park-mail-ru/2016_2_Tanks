@@ -42,7 +42,7 @@
         _updateHtml() {
             this.el.innerHTML = `
 				<form>
-                    <div class="js-data">
+                    <div class="js-data form">
 				    </div>
 				    <div class="js-controls">
 				    </div>
