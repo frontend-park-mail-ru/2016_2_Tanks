@@ -16,6 +16,7 @@
             this._updateHtml();
             this._updateDataHtml();
             this._installControls();
+            this.el.classList.add('form');
         }
 
         reFill(options = {data: {}}) {
@@ -42,7 +43,7 @@
         _updateHtml() {
             this.el.innerHTML = `
 				<form>
-                    <div class="js-data form">
+                    <div class="js-data">
 				    </div>
 				    <div class="js-controls">
 				    </div>

@@ -1,6 +1,6 @@
-.form {
-	background-color: #ffe;
-    border-radius: 100rem/25rem;
-    color: #930; /* Цвет текста */
+form input{
+    background-color: green;
     display: block;
+    padding: 1rem;
+    margin: 1rem auto;
 }
