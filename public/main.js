@@ -6,8 +6,8 @@
         let user = {};
         window.user = user;
 
-        let addressHost = "http://javaprodaction.herokuapp.com/";
-        //let addressHost = "http://localhost:8080/";
+        //let addressHost = "http://javaprodaction.herokuapp.com/";
+        let addressHost = "http://localhost:8080/";
         window.addressHost = addressHost;
 
         const Router = window.Router;
