@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-
+ 
     if (typeof window === 'object') {
 
         let user = {};
