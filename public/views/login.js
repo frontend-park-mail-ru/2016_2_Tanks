@@ -31,14 +31,14 @@
             }).render();
 
             let playWithFreindsButton = new Button({
-                text: 'play with friends',
+                text: 'party',
                 attrs: {
                     type: 'click'
                 }
             }).render();
 
             let leaderBoardButton = new Button({
-                text: 'leaderboard',
+                text: 'leaders',
                 attrs: {
                     type: 'click'
                 }
