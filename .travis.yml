@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: Wo365JscnYFyik7vXaccA27pAlEU3PvEXfWG1yPQUlFl5bXFtFxMA61FbOUkjfi7/lt1FqRMZzq4V9qmFmlO4+YYJUBJWxmkkdLUh1evqb6mkzwEcA57BOVWrMHaRkiEf9uJTjv0U07m/C7vO/l3Rt1mWFwpuUwCsBfotgO4iip//xgoW6oxh+cQPDuI/uXzcLaq+NY1T6MWBQ/tYW9wAZftn6FRK1U5oWGR+knuSwA55E/Ip6ndMpG9a2+YZWxDR1pHNW5xabCqrGxib5EQHBbyV80Be2O2d7s1Kkrvx/VuRIloYRtZfvjqFqB4Xm7/P7gp9RMErwOfa/Y46v+ilWbgGbTgacITFV49XQ/bT75/u3EQR/DWGp2i8ADddZFThU2DzdDUXtX2ZAwJAxOZFYt7CbKG9oUbtCF1RyLP1kbPNG36A0A2fHbASLbf5IEVXfk3hVbKj9Vu5Koz0Js6dcK82iXPc9pUWgKUkRAKrKElSKMcK+KnWjojv92Ia++JM2HFEHYdcA5Ox4FegnUP7tHmqP8B0CWXHerLxyIsv5jsifs9748puVY26ziaDJIdvWpgtVfVrsjRXuLGBd6hHG98KUwG9wKKimTNFAbz1yqEFafZZazqq4XLM23vp7C5DxFrKQ2MSDZFzjblOThFuxgCOi0ULMdDk8L+dRW+QRM=
-  app: serene-bastion-84317
+  app: tankssteam
   on:
     repo: tupiznak/2016_2_Tanks

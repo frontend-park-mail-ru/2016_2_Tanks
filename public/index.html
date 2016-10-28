@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>SteamTanks</title>
-	<link rel="stylesheet" href="/css/milligram.min.css"/>
-	<link rel="stylesheet" href="/css/main.css" />
+    <meta charset="UTF-8">
+    <title>SteamTank</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!--
+    <link rel="stylesheet" href="/css/milligram.min.css"/>
+    <link rel="stylesheet" href="/css/main.css" />-->
 
-	<link rel="stylesheet" href="/components/button/button.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link rel="stylesheet" href="/components/button/button.css" />
+    <link rel="stylesheet" href="/components/form/form.css" />
 </head>
 <body>
+<div class="site-wrapper">
 
-	<div class="js-login" hidden="hidden">
-	</div>
-	<div class="js-signin" hidden="hidden">
-	</div>
-	<div class="js-profile" hidden="hidden">
-	</div>
+    <div class="site-wrapper-inner">
 
-	<script src="/components/button/button.js"></script>
-	<!--<script src="/components/profileShow/profileShow.js"></script>-->
-	<script src="/components/form/form.js"></script>
+        <div class="cover-container">
 
-	<script src="/libs/technolibs/index.js"></script>
-	<script src="main.js"></script>
+            <div class="inner cover">
+                <img src="/images/logo.gif" width="14%" height="20%" style="position: fixed; top: 7%; left: 43%;">
+                <div class="js-allforms"></div>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Game by <a href="https://github.com/tupiznak">tupiznak</a>. Design by el_designo.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="/modules/pathToRegex.js"></script>
+<script src="/modules/view.js"></script>
+<script src="/modules/route.js"></script>
+<script src="/modules/router.js"></script>
+
+
+<script src="/components/button/button.js"></script>
+<!--<script src="/components/profileShow/profileShow.js"></script>-->
+<script src="/components/form/form.js"></script>
+
+<script src="components/logic/filling.js"></script>
+
+<script src="/views/main.js"></script>
+<script src="/views/start.js"></script>
+<script src="/views/signin.js"></script>
+<script src="/views/signup.js"></script>
+<script src="/views/login.js"></script>
+
+<script src="main.js"></script>
 </body>
 </html>

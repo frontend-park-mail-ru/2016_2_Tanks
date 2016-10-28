@@ -16,6 +16,7 @@
             this._updateHtml();
             this._updateDataHtml();
             this._installControls();
+            this.el.classList.add('form');
         }
 
         reFill(options = {data: {}}) {

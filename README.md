@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/tupiznak/tanks.front.svg?branch=master)](https://travis-ci.org/tanks.front)
+[![Build Status](https://travis-ci.org/tupiznak/2016_2_Tanks.svg?branch=master)](https://travis-ci.org/2016_2_Tanks)

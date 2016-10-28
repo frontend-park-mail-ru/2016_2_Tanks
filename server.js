@@ -1,37 +1,29 @@
-let express = require('express');
-let parser = require('body-parser');
-let app = express();
-let technoDoc = require('techno-gendoc');
-let path = require('path');
+const express = require('express');
 
-let Swagger = require('swagger-client');
+const parser = require('body-parser');
 
-//let technolibs = require('technolibs');
+const app = express();
 
-app.use('/', express.static('public', { maxAge: 1 }));
+const technoDoc = require('techno-gendoc');
+
+// let path = require('path');
+
+app.use('/start', express.static('public', {maxAge: 1}));
+app.use('/login', express.static('public', {maxAge: 1}));
+app.use('/signup', express.static('public', {maxAge: 1}));
+app.use('/signin', express.static('public', {maxAge: 1}));
+app.use('/', express.static('public', {maxAge: 1}));
 technoDoc.generate(require('./api'), 'public');
 
 app.use(parser.json());
-app.use('/libs', express.static('node_modules'));
+//app.use('/libs', express.static('node_modules'));
+
 
 app.get('/api/session', (req, res) => {
-//	res.send(technoDoc.mock(require('./api/scheme/Session')))
+    res.send(technoDoc.mock(require('./api/scheme/Session')))
 });
 
-
-app.post('/api/messages', (req, res) => {
-//	technolibs.publish(req.body).then(body => res.json(req.body));
-});
-
-app.get('/api/messages', function (req, res) {
-	res.send([
-		// technoDoc.mock(require('./api/scheme/Message')),
-		// technoDoc.mock(require('./api/scheme/Message')),
-		// technoDoc.mock(require('./api/scheme/Message')),
-		// technoDoc.mock(require('./api/scheme/Message'))
-	])
-});
 
 app.listen(process.env.PORT || 3000, () => {
-	console.log(`App started on port ${process.env.PORT || 3000}`);
+    console.log(`App started on port ${process.env.PORT || 3000}`);
 });
